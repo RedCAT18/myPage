@@ -27,6 +27,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import '../assets/css/normalize.css';
+    
+    * {
+        text-decoration: none;
+    }
+    a:visited, a:active, a:link {
+        color: #000000; 
+    }
+    .container {
+        background-color: #e8c6cd;
+        color: #000000;
+    }
 </style>
