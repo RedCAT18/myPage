@@ -5,7 +5,7 @@
         </div>
         <router-view></router-view>
         <div class="profile__nav">
-            <router-link :to="{name: 'profileBase'}" active-class="active" exact class="profile__nav-item">
+            <router-link :to="{name: 'profileBase'}" class="profile__nav-item">
                 <font-awesome-icon class="profile__nav-icon" :icon="userIcon"/>Who am I?
             </router-link>
             <router-link :to="{name: 'profileSkill'}" class="profile__nav-item">
@@ -59,17 +59,21 @@
             justify-content: flex-end;
             padding: 10px;
             font-family: $fredericka;
-            font-size: 28pt;
+            font-size: 36pt;
             @media screen and (max-width: 768px) {
                 font-size: 6vmax;
                 justify-content: center;
             } 
         }
         .profile__nav{
-            margin-top: 20px;
+            margin: 20px;
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+                text-align: center;
+            }
             .profile__nav-item {
                 margin: 10px;
                 padding: 10px;

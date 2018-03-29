@@ -22,10 +22,10 @@ export default {
                 font-size: 28pt;
                 font-weight: 100;
                 text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5);
-              @media screen and (max-width: 768px) {
-                  font-size: 6vmax;
-                  justify-content: center;
-              } 
+                @media screen and (max-width: 768px) {
+                    font-size: 6vmax;
+                    text-align: center;
+                } 
           }
     }
 </style>

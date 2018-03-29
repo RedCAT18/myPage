@@ -79,18 +79,28 @@ export default {
             .profile__detail-inbox {
                 display: flex;
                 justify-content: space-between;
+                @media screen and (max-width: 768px) {
+                    flex-direction: column;
+                }
                 .inbox__drawer {
                     flex: 1;
-                    padding: 10px;
+                    padding: 20px 10px;
+                    border : 1px dashed rgba(255, 255, 255, 0.5);
+                    border-radius: 5px;
+                    margin: 10px;
+                    box-shadow: 5px 5px 0 rgba(255, 255, 255, 0.5);
                     .profile__detail-headtext {
                         font-size: 16pt;
                         margin: 5px;
                         font-family: $fredericka;
+                        display: flex;
+                        justify-content: center;
                     }
                     .profile__detail-subtext {
-                        margin-left: 50px;
                         font-family: $nanum;
                         font-style: italic;
+                        display: flex;
+                        justify-content: center;
                     }
                     .inbox__icon {
                         margin: 40px auto;
