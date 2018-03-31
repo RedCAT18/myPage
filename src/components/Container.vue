@@ -1,10 +1,13 @@
 <template>
   <div class="container">
-      <navi></navi>
-      <intro></intro>
-      <profile></profile>
-      <words></words>
-      <contact></contact>
+        <navi></navi>
+        <intro></intro>
+        <profile></profile>
+        <words></words>
+        <contact></contact>
+        <div class="footer">
+            <p class="footer__content">Copyright 2018 RedCAT. All right reserved. </p>
+        </div>
   </div>
 </template>
 
@@ -39,5 +42,16 @@ export default {
     .container {
         background-color: #e8c6cd;
         color: #000000;
+        .footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 20px;
+            .footer__content {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                font-size: 10pt;
+            }
+        }
     }
 </style>

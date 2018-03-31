@@ -5,7 +5,7 @@
         </h2>
         <div class="profile__detail-box">
             <p class="profile__detail-text">
-               Life is going on, and challenge is neverending. 
+               Life is going on, and challenge is never ending. 
             </p>
             <div class="profile__detail-inbox">
                 <div class="inbox__drawer">
@@ -61,7 +61,7 @@ export default {
         .profile__name {
             margin: 20px 0;
             font-family: $fredericka;
-            font-size: 28pt;
+            font-size: 24pt;
             font-weight: 100;
             text-shadow: 3px 3px 0 rgba(255, 255, 255, 0.5);
         }

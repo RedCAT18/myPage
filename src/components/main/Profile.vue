@@ -3,29 +3,42 @@
         <div class="profile__title">
             About Me
         </div>
-        <router-view></router-view>
         <div class="profile__nav">
-            <router-link :to="{name: 'profileBase'}" class="profile__nav-item">
+            <div @click="changePage('main')" class="profile__nav-item">
                 <font-awesome-icon class="profile__nav-icon" :icon="userIcon"/>Who am I?
-            </router-link>
-            <router-link :to="{name: 'profileSkill'}" class="profile__nav-item">
+            </div>
+            <div @click="changePage('skill')" class="profile__nav-item">
                 <font-awesome-icon class="profile__nav-icon" :icon="keyboardIcon"/>What can I do?
-            </router-link>
-            <router-link :to="{name: 'profileExp'}"  class="profile__nav-item">
+            </div>
+            <div @click="changePage('exp')" class="profile__nav-item">
                 <font-awesome-icon class="profile__nav-icon" :icon="clipboardIcon"/>What did I do?
-            </router-link>
+            </div>
         </div>
+        <transition name="profile-slide" mode="out-in">
+            <profile-main v-if="profilePage === 'main'"></profile-main>
+            <profile-skill v-else-if="profilePage === 'skill'"></profile-skill>
+            <profile-exp v-else-if="profilePage === 'exp'"></profile-exp> 
+        </transition>
+        
     </div>
 </template>
 
 <script>
-    // import profileMain from './profile/Profile-main.vue';
+    import profileMain from './profile/Profile-main.vue';
+    import profileSkill from './profile/Profile-skill.vue';
+    import profileExp from './profile/Profile-exp.vue';
+
     import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
     import faUser from '@fortawesome/fontawesome-free-solid/faUser';
     import faKeyboard from '@fortawesome/fontawesome-free-solid/faKeyboard';
     import faClipboard from '@fortawesome/fontawesome-free-solid/faClipboardList';
 
     export default {
+        data() {
+            return {
+                profilePage: 'main',  
+            }
+        },
         computed: {
             userIcon(){
                 return faUser;
@@ -35,13 +48,22 @@
             },
             clipboardIcon() {
                 return faClipboard;
+            },
+            page(){
+                return this.profilePage;
             }
         },
         components: {
-            // profileMain : profileMain,
+            profileMain : profileMain,
+            profileSkill: profileSkill,
+            profileExp: profileExp,
             FontAwesomeIcon,
         },
-        
+        methods: {
+            changePage: function(page){
+                this.profilePage = page;
+            }
+        }
     
     }
 </script>
@@ -59,9 +81,9 @@
             justify-content: flex-end;
             padding: 10px;
             font-family: $fredericka;
-            font-size: 36pt;
+            font-size: 32pt;
             @media screen and (max-width: 768px) {
-                font-size: 6vmax;
+                font-size: 5vmax;
                 justify-content: center;
             } 
         }
@@ -75,29 +97,37 @@
                 text-align: center;
             }
             .profile__nav-item {
+                border-top: 3px double rgba(255, 255, 255, 0.5);
+                border-bottom: 3px double rgba(255, 255, 255, 0.5);
                 margin: 10px;
                 padding: 10px;
-                border-radius: 5px;
                 font-family: $fredericka;
+                font-size: 16pt;
                 font-style: italic;
-                font-weight: 700;
-                background: #ffffff;
-                color: #393d50;
+                color: #ffffff;
                 cursor: pointer;
-                border: 1px solid #ffffff;
                 .profile__nav-icon {
-                    margin-right: 5px;
+                    margin-right: 10px;
                 }
             }
             .profile__nav-item:hover {
-                border: 1px solid #151824;
-                box-shadow: 2px 2px 2px #151824;
+                text-shadow: 3px 3px 2px #151824;
             }
             .profile__nav-item:active {
-                border: 1px solid #151824;
+                
                 transform: translate(1px, 1px);
-                box-shadow: 1px 1px 1px #151824;
+                text-shadow: 1px 1px 1px #151824;
             }
         }
+    }
+    .profile-slide-enter  {
+        transform: scale(0, 0);
+        opacity: 0;
+    }
+    .profile-slide-leave-to{
+        opacity: 0;
+    }
+    .profile-slide-enter-active, .profile-slide-leave-active {
+        transition: all 0.8s;
     }
 </style>
