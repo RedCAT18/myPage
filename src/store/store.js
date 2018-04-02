@@ -5,26 +5,21 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        profile: 'main',
+        position: 'index',
     },
     actions: {
-        setProfilePage:({commit}, payload)=>{
-            commit('SET_PROFILE_PAGE', payload);
+        getPagePosition:({commit}, payload)=>{
+            commit('SET_PAGE_POSITION', payload);
         },
     },
     mutations: {
-        SET_PROFILE_PAGE: (state, payload) => {
-            state.profile = payload;
+        SET_PAGE_POSITION: (state, payload) => {
+            state.position = payload;
         },
     },
     getters: {
-        getProfilePage: (state)=>{
-            switch(state.profile) {
-                case 'main': return 'profileBase';
-                case 'skill': return 'profileSkill'; 
-                case 'exp': return 'profileExp'; 
-                default: return false;
-            }
-        }
+        getPosition: state => {
+            return state.position;
+        },
     }
 });

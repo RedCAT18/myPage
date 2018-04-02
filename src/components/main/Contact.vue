@@ -1,5 +1,5 @@
 <template>
-    <div class="contact__outbox">
+    <div class="contact__outbox" id="contact">
         <h2 class="contact__title">
             Contact
         </h2>
@@ -17,9 +17,9 @@
                 <span class="contact__inbox-content">021 083 00845</span>
             </div>
             <div class="contact__detail-inbox">
-                <font-awesome-icon class="sns-icons" :icon='github'/>
-                <font-awesome-icon class="sns-icons" :icon='linkedIn'/>
-                <font-awesome-icon class="sns-icons" :icon='facebook'/>
+                <a href="https://github.com/RedCAT18" target="_blank"><font-awesome-icon class="sns-icons" :icon='github'/></a>
+                <a href="https://www.linkedin.com/in/kayoung-seo-a17b83119/" target="_blank"><font-awesome-icon class="sns-icons" :icon='linkedIn'/></a> 
+                <a href="https://www.facebook.com/redcat18" target="_blank"><font-awesome-icon class="sns-icons" :icon='facebook'/></a>
             </div>
         </div>
     </div>
@@ -91,6 +91,8 @@
                     font-size: 42pt;
                     margin-top: 10px;
                     margin-left: 10px;
+                    cursor: pointer;
+                    color: #ffffff;
                 }
             }
         }

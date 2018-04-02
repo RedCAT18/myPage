@@ -1,5 +1,5 @@
 <template>
-    <div class="profile__outbox">
+    <div class="profile__outbox" id="profile">
         <div class="profile__title">
             About Me
         </div>

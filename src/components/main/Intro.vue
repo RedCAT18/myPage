@@ -1,5 +1,5 @@
 <template>
-    <div class="intro__outbox">
+    <div class="intro__outbox" id="intro">
         <div class="intro">
             <span class="intro__text">HELLO</span>
             <div class="center__image">
@@ -56,10 +56,10 @@
         }
         .intro__background {
             position: relative;
-            top: -200px;
+            top: -100px;
             left: 0;
             width: 100%;
-            height: 900px;
+            height: 800px;
             background-image: url(../../assets/images/bgImage.jpg);
             background-color: transparent;
             background-position: center;

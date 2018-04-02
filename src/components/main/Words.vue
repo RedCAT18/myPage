@@ -1,5 +1,5 @@
 <template>
-    <div class="words__outbox">
+    <div class="words__outbox" id="words">
         <h2 class="words__title">Words</h2>
         <div class="words__inbox">
 

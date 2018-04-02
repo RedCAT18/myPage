@@ -26,6 +26,20 @@ export default {
         words: Words,
         contact: Contact,
     },
+    computed: {
+        position() {
+            let pos = this.$store.getters.getPosition;
+            let element = this.$refs.pos;
+            let top = element.offsetTop;
+
+            window.scrollTo(0, top);
+        },
+    },
+    methods: {
+        scrollTo(pos){
+            
+        }
+    }
   
 }
 </script>
