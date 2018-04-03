@@ -1,23 +1,33 @@
 <template>
   <div id="nav">
-      <header class="nav__content">
+      <div class="nav__content">
           <ul class="nav__list">
               <li class="nav__list-item"><a href="#intro">HOME</a></li>
               <li class="nav__list-item"><a href="#profile">ABOUT ME</a></li>
               <li class="nav__list-item"><a href="#words">WORDS</a></li>
               <li class="nav__list-item"><a href="#contact">CONTACT</a></li>
           </ul>
-      </header>
+      </div>
+      <transition name="fixed"  v-if="fixMenu" appear>
+        <div class="nav__content fixed__nav">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a href="#intro">HOME</a></li>
+                <li class="nav__list-item"><a href="#profile">ABOUT ME</a></li>
+                <li class="nav__list-item"><a href="#words">WORDS</a></li>
+                <li class="nav__list-item"><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+      </transition>
   </div>
 </template>
 
 <script>
     export default {
         computed: {
-           height(){
-               return document.documentElement.scrollTop;
-           }
-       },
+            fixMenu(){
+                return this.$store.getters.getPosition;
+            }
+        },
     }
 </script>
 
@@ -26,14 +36,11 @@
     @import '../../assets/css/preset';
 
     #nav {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        padding: 0 30px;
-        background: #e8c6cd;
+        
+        padding: 20px 30px;
+        
         color: '#00000';
-        z-index: 10;
+        
         .nav__content {
             display: flex;
             flex-direction: row-reverse;
@@ -59,5 +66,21 @@
                 }
             }
         }
+        .fixed__nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: #e8c6cd;
+            z-index: 10;
+            padding-right: 30px;
+        }
+    }
+    .fixed-enter, .fixed-leave-to {
+        transform: translateY(-100%);
+    }
+        
+    .fixed-enter-active, .fixed-leave-active {
+        transition: transform 1s;
     }
 </style>

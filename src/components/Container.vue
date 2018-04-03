@@ -26,19 +26,17 @@ export default {
         words: Words,
         contact: Contact,
     },
-    computed: {
-        position() {
-            let pos = this.$store.getters.getPosition;
-            let element = this.$refs.pos;
-            let top = element.offsetTop;
-
-            window.scrollTo(0, top);
+    methods: {
+        handleScroll: function(e){
+            let height = window.pageYOffset;
+            this.$store.dispatch('setPosition', height);
         },
     },
-    methods: {
-        scrollTo(pos){
-            
-        }
+    created(){
+        window.addEventListener('scroll', this.handleScroll);
+    }, 
+    destroyed(){
+        window.removeEventListener('scroll', this.handleScroll);
     }
   
 }

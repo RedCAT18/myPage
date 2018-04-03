@@ -5,21 +5,26 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        position: 'index',
+        fixMenu: false,
     },
     actions: {
-        getPagePosition:({commit}, payload)=>{
-            commit('SET_PAGE_POSITION', payload);
+        setPosition:({commit}, payload)=>{
+            commit('SET_POSITION', payload);
         },
     },
     mutations: {
-        SET_PAGE_POSITION: (state, payload) => {
-            state.position = payload;
+        SET_POSITION: (state, payload) => {
+            // console.log(height);
+            if(payload < 200) {
+                state.fixMenu = false;
+            } else {
+                state.fixMenu = true;
+            } 
         },
     },
     getters: {
         getPosition: state => {
-            return state.position;
+            return state.fixMenu;
         },
     }
 });
